@@ -1,3 +1,12 @@
+import {
+  Bowman,
+  Swordsman,
+  Magician,
+  Vampire,
+  Undead,
+  Daemon,
+} from './Character';
+
 /**
  * Generates random characters
  *
@@ -5,6 +14,7 @@
  * @param maxLevel max character level
  * @returns Character type children (ex. Magician, Bowman, etc)
  */
+
 export function* characterGenerator(allowedTypes, maxLevel) {
   const typeIndex = Math.floor(Math.random() * allowedTypes.length);
   const Type = allowedTypes[typeIndex];
