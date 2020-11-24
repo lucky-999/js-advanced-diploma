@@ -6,9 +6,17 @@
  * @returns Character type children (ex. Magician, Bowman, etc)
  */
 export function* characterGenerator(allowedTypes, maxLevel) {
-  // TODO: write logic here
+  const typeIndex = Math.floor(Math.random() * allowedTypes.length);
+  const Type = allowedTypes[typeIndex];
+  const level = Math.floor(Math.random() * maxLevel) + 1;
+
+  return new Type(level);
 }
 
 export function generateTeam(allowedTypes, maxLevel, characterCount) {
-  // TODO: write logic here
+  const result = [];
+  for (let i = 0; i < characterCount; i += 1) {
+    result.push(characterGenerator(allowedTypes, maxLevel));
+  }
+  return result;
 }
