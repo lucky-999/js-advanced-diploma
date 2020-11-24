@@ -5,8 +5,19 @@ export default class GameController {
   }
 
   init() {
-    // TODO: add event listeners to gamePlay events
-    // TODO: load saved stated from stateService
+    this.gamePlay.drawUi('prairie');
+
+    
+    this.gamePlay.addCellEnterListener(this.onCellEnter.bind(this));
+    this.gamePlay.addCellLeaveListener(this.onCellLeave.bind(this));
+    this.gamePlay.addCellClickListener(this.onCellClick.bind(this));
+
+    this.gamePlay.addNewGameListener(this.onNewGameClick.bind(this));
+    this.gamePlay.addSaveGameListener(this.onSaveClick.bind(this));
+    this.gamePlay.addLoadGameListener(this.onLoadClick.bind(this));
+
+    this.ai.nextTurn = this.nextTurn.bind(this);
+    this.onNewGameClick();
   }
 
   onCellClick(index) {
