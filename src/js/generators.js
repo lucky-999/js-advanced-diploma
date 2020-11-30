@@ -14,8 +14,8 @@ import {
  * @param maxLevel max character level
  * @returns Character type children (ex. Magician, Bowman, etc)
  */
+export function characterGenerator(allowedTypes, maxLevel) {
 
-export function* characterGenerator(allowedTypes, maxLevel) {
   const typeIndex = Math.floor(Math.random() * allowedTypes.length);
   const Type = allowedTypes[typeIndex];
   const level = Math.floor(Math.random() * maxLevel) + 1;
